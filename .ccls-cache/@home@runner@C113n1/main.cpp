@@ -1,5 +1,23 @@
 #include <iostream>
+#include "inputfile.h"
 
-int main() {
-  std::cout << "Hello World!\n";
+// I/O definitions
+FILE *gInputFile = NULL;
+FILE *gOutputFile = NULL;
+
+int main(int argc, char *argv[]) {
+  /*-------------------------------FILE INITIALIZATION START-----------------------------*/
+  usage (argc, argv[0]);
+  FILE *gIFileP = openInputFile (argv[1]);
+  FILE *gOFileO = openOutputFile (argv[1]);
+  /*-------------------------------FILE INITIALIZATION END--------------------------------*/
+
+
+
+  
+  /*--------------------------------FILE CLEANUP START------------------------------------*/
+  fclose (gIFileP);
+  fclose (gOFileO);
+  /*--------------------------------FILE CLEANUP END--------------------------------------*/
+  return 0;
 }
