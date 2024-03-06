@@ -1,10 +1,12 @@
+#include <iostream>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstring>
 #include <errno.h>
 #include "inputfile.h"
 
-void usage (int numArgs, char *cmd) {
+void fileIO::usage (int numArgs, char *cmd) {
   if (numArgs != 2) {
     fprintf (stderr, "Usage: %s <filename>\n", cmd);
     exit (EXIT_FAILURE);
@@ -13,6 +15,17 @@ void usage (int numArgs, char *cmd) {
 
 FILE * openInputFile (char *fileName) {
   FILE *fp;
+
+  ifstream infile;
+  if (NULL == (fp = fopen(fileName, "r"))) {
+    fprintf (stderr, "inputFile: %s: %s\n", fileName, std::strerror(errno));
+    return NULL;
+  }
+  else {
+    fprintf (stderr, "%s opened for reading.\n" , fileName);
+    return fp;
+  }
+  
   if (NULL == (fp = fopen(fileName, "r"))) {
     fprintf (stderr, "inputFile: %s: %s\n", fileName, std::strerror(errno));
     return NULL;
