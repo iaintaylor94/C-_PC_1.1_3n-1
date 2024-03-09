@@ -1,10 +1,13 @@
-#include <iostream>
-
+#include <fstream>
+#include <sstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstring>
+#include <string>
 #include <errno.h>
+#include <iostream>
 #include "fileIO.h"
+#include "processIO.h"
 
 fileIO::fileIO(int argc, char *argv[]) {
   if (usage(argc, argv[0])) {
@@ -57,3 +60,17 @@ void fileIO::closeInFile (void) {
 void fileIO::closeOutFile (void) {
   outputFile.close();
 }
+
+void fileIO::printIO (void) {
+  std::cout << "LB = " << leftBoundary << std::endl;
+  std::cout << "RB = " << rightBoundary << std::endl;
+  std::cout << "AN = " << answer << std::endl;
+}
+
+void fileIO::getInput (void) {
+  std::string temp;
+  std::getline (inputFile, temp);
+  std::istringstream inputStream(temp);
+  inputStream >> leftBoundary >> rightBoundary;
+}
+

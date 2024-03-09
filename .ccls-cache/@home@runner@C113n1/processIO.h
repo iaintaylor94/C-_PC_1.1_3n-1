@@ -2,8 +2,25 @@
 #define PROCESSIO_H
 
 #include <stdio.h>
+#include "fileIO.h"
 
-void getInput (void);
-void printInput(void);
+
+class processIO {
+  int leftBoundary;
+  int rightBoundary;
+  int answer;
+
+  int calculateLength (int);
+
+public:
+  processIO(void);
+  ~processIO(void);
+
+  void pullInput(fileIO&);
+
+  void findMax(void);
+
+  void printProcessIO (void);
+};
 
 #endif
