@@ -25,7 +25,7 @@ public:
   fileIO(int argc, char* argv[]);
   ~fileIO();
 
-  void getInput(void);
+  bool getInput(void);
   void printIO (void);
 
   friend void processIO::pullInput(fileIO&);

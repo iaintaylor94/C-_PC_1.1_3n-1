@@ -68,10 +68,13 @@ void fileIO::printIO (void) {
   std::cout << "AN = " << answer << std::endl;
 }
 
-void fileIO::getInput (void) {
+bool fileIO::getInput (void) {
   std::string temp;
-  std::getline (inputFile, temp);
-  std::istringstream inputStream(temp);
-  inputStream >> leftBoundary >> rightBoundary;
+  if (std::getline (inputFile, temp)) {
+    std::istringstream iss (temp);
+    iss >> leftBoundary >> rightBoundary;
+    return true;
+  }
+  return false;
 }
 
