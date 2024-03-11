@@ -1,12 +1,13 @@
 #ifndef FILEIO_H
 #define FILEIO_H
 
-#include "processIO.h"
-
 #include <fstream>
 
+#include "processIO.h"
+class processIO;
 
 class fileIO {
+
   std::ifstream inputFile;
   std::ofstream outputFile;
 
@@ -28,6 +29,7 @@ public:
   void printIO (void);
 
   friend void processIO::pullInput(fileIO&);
+  friend void processIO::pushOutput(fileIO&);
 
 };
 

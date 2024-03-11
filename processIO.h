@@ -1,9 +1,7 @@
 #ifndef PROCESSIO_H
 #define PROCESSIO_H
 
-#include <stdio.h>
-#include "fileIO.h"
-
+class fileIO;
 
 class processIO {
   int leftBoundary;
@@ -17,6 +15,7 @@ public:
   ~processIO(void);
 
   void pullInput(fileIO&);
+  void pushOutput(fileIO&);
 
   void findMax(void);
 

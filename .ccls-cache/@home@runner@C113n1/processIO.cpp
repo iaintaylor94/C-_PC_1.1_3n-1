@@ -23,9 +23,12 @@ void processIO::pullInput(fileIO &fIO) {
   leftBoundary = fIO.leftBoundary;
   rightBoundary = fIO.rightBoundary;
 }
+void processIO::pushOutput(fileIO &fIO) {
+  fIO.answer = answer;
+}
 
 int processIO::calculateLength(int i) {
-  int length = 0;
+  int length = 1;
   while (i != 1) {
     if (i % 2 == 0) { // i is even
       i /= 2;
@@ -34,7 +37,9 @@ int processIO::calculateLength(int i) {
       i *= 3;
       i++;
     }
+    length++;
   }
+  //std::cout << "Length = " << length << std::endl;
   return length;
 }
 void processIO::findMax(void) {

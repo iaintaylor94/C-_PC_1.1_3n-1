@@ -12,6 +12,13 @@ int main(int argc, char *argv[]) {
   instanceIO.getInput();
   instanceIO.printIO();
 
+  instanceProcess.pullInput(instanceIO);
+  instanceProcess.findMax();
+  instanceProcess.printProcessIO();
+  instanceProcess.pushOutput(instanceIO);
+
+  instanceIO.printIO();
+
   
   /*--------------------------------FILE CLEANUP START------------------------------------*/
   /*--------------------------------FILE CLEANUP END--------------------------------------*/

@@ -18,6 +18,7 @@ fileIO::fileIO(int argc, char *argv[]) {
 fileIO::~fileIO() {
   closeInFile ();
   closeOutFile ();
+  std::cout << "fileIO destructor called" << std::endl;
 }
 
 bool fileIO::usage (int numArgs, char *cmd) {
