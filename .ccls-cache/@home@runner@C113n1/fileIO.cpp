@@ -6,6 +6,7 @@
 #include <string>
 #include <errno.h>
 #include <iostream>
+#include <iomanip>
 #include "fileIO.h"
 #include "processIO.h"
 
@@ -63,9 +64,11 @@ void fileIO::closeOutFile (void) {
 }
 
 void fileIO::printIO (void) {
-  std::cout << "LB = " << leftBoundary << std::endl;
-  std::cout << "RB = " << rightBoundary << std::endl;
-  std::cout << "AN = " << answer << std::endl;
+
+  std::cout << std::setw(4) << leftBoundary << " "
+            << std::setw(4) << rightBoundary << " "
+            << std::setw(4) << answer << std::endl;
+
 }
 
 bool fileIO::getInput (void) {

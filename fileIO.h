@@ -2,9 +2,7 @@
 #define FILEIO_H
 
 #include <fstream>
-
 #include "processIO.h"
-class processIO;
 
 class fileIO {
 

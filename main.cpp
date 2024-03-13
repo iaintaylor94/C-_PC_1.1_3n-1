@@ -9,12 +9,12 @@ int main(int argc, char *argv[]) {
   processIO instanceProcess;
   /*-------------------------------FILE INITIALIZATION END--------------------------------*/
 
+  std::cout << "  LB   RB   AN" << std::endl;
+  std::cout << "---- ---- ----" << std::endl;
   while (instanceIO.getInput()) {
-    //instanceIO.printIO();
 
     instanceProcess.pullInput(instanceIO);
     instanceProcess.findMax();
-    //instanceProcess.printProcessIO();
     instanceProcess.pushOutput(instanceIO);
 
     instanceIO.printIO();
