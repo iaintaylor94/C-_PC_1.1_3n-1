@@ -23,6 +23,10 @@ public:
   fileIO(int argc, char* argv[]);
   ~fileIO();
 
+  bool operator ++ () {
+    return (getInput());
+  }
+
   bool getInput(void);
   void printIO (void);
 

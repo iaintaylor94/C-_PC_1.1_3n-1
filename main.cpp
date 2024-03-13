@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
 
   std::cout << "  LB   RB   AN" << std::endl;
   std::cout << "---- ---- ----" << std::endl;
-  while (instanceIO.getInput()) {
+  while (++instanceIO) {
 
     instanceProcess.pullInput(instanceIO);
     instanceProcess.findMax();
