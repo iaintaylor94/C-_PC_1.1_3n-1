@@ -6,9 +6,6 @@
 
 class fileIO {
 
-  std::ifstream inputFile;
-  std::ofstream outputFile;
-
   bool usage (int, char*);
   void openInputFile(char *);
   void openOutputFile(char *);
@@ -26,6 +23,19 @@ public:
   bool operator ++ () {
     return (getInput());
   }
+
+
+  // STREAM
+  std::ifstream inputFile;
+  std::ofstream outputFile;
+
+  // LEFT SIDE
+  friend std::ostream& operator<< (std::ostream& out, fileIO &f);
+  friend std::istream& operator>> (std::istream& in, fileIO &f);
+
+  // RIGHT SIDE
+  friend fileIO& operator<< (fileIO &f, processIO &p);
+  friend fileIO& operator>> (fileIO &f, processIO &p);
 
   bool getInput(void);
   void printIO (void);

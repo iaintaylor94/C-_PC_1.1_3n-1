@@ -9,15 +9,22 @@ int main(int argc, char *argv[]) {
   processIO instanceProcess;
   /*-------------------------------FILE INITIALIZATION END--------------------------------*/
 
-  std::cout << "  LB   RB   AN" << std::endl;
-  std::cout << "---- ---- ----" << std::endl;
-  while (++instanceIO) {
-
-    instanceProcess.pullInput(instanceIO);
+  // COUT                                          // OUTPUT FILE
+  std::cout << "  LB   RB   AN" << std::endl;      instanceIO.outputFile << "  LB   RB   AN" << std::endl;
+  std::cout << "---- ---- ----" << std::endl;      instanceIO.outputFile << "---- ---- ----" << std::endl;
+  while (instanceIO.inputFile.peek() != EOF) {
+    
+    instanceIO.inputFile >> instanceIO;
+ >> instanceProcess; //instanceProcess.pullInput(instanceIO);
     instanceProcess.findMax();
-    instanceProcess.pushOutput(instanceIO);
-
-    instanceIO.printIO();
+    instanceIO << instanceProcess; //instanceProcess.pushOutput(instanceIO);
+    std::cout << instanceIO;                        instanceIO.outputFile << instanceIO;
+    
+    // instanceIO >> instanceProcess;
+    // instanceProcess.findMax();
+    // instanceIO << instanceProcess;
+    // cout << instanceIO; ???
+    
   }
 
 

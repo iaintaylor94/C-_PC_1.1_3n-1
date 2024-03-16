@@ -81,3 +81,25 @@ bool fileIO::getInput (void) {
   return false;
 }
 
+// LEFT SIDE
+std::ostream& operator<< (std::ostream& out, fileIO &f) {
+  out << std::setw(4) << f.leftBoundary   << " "
+      << std::setw(4) << f.rightBoundary  << " "
+      << std::setw(4) << f.answer         << std::endl;
+  return out;
+}
+std::istream& operator>> (std::istream& in, fileIO &f) {
+  in >> f.leftBoundary >> f.rightBoundary;
+  return in;
+}
+
+// RIGHT SIDE
+fileIO& operator<< (fileIO &f, processIO &p) {
+  f.answer = p.answer;
+  return f;
+}
+fileIO& operator>> (fileIO &f, processIO &p) {
+  p.leftBoundary = f.leftBoundary;
+  p.rightBoundary = f.rightBoundary;
+  return f;
+}
