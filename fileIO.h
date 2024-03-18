@@ -12,9 +12,9 @@ class fileIO {
   void closeInFile(void);
   void closeOutFile(void);
 
+protected:
   int leftBoundary;
   int rightBoundary;
-  int answer;
 
 public:
   fileIO(int argc, char* argv[]);

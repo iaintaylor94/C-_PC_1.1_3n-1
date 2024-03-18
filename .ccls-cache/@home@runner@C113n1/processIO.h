@@ -2,18 +2,15 @@
 #define PROCESSIO_H
 
 #include <fstream>
+#include "fileIO.h"
 
-class fileIO;
-
-class processIO {
-  int leftBoundary;
-  int rightBoundary;
+class processIO : public fileIO {
   int answer;
 
   int calculateLength (int);
 
 public:
-  processIO(void);
+  processIO(int argc, char *argv[]) : fileIO(argc, argv[]);
   ~processIO(void);
 
   friend fileIO& operator<< (fileIO &f, processIO &p);

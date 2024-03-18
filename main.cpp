@@ -12,18 +12,14 @@ int main(int argc, char *argv[]) {
   // COUT                                          // OUTPUT FILE
   std::cout << "  LB   RB   AN" << std::endl;      instanceIO.outputFile << "  LB   RB   AN" << std::endl;
   std::cout << "---- ---- ----" << std::endl;      instanceIO.outputFile << "---- ---- ----" << std::endl;
+  
   while (instanceIO.inputFile.peek() != EOF) {
     
     instanceIO.inputFile >> instanceIO;
-    instanceIO >> instanceProcess; //instanceProcess.pullInput(instanceIO);
+    instanceIO >> instanceProcess;
     instanceProcess.findMax();
-    instanceIO << instanceProcess; //instanceProcess.pushOutput(instanceIO);
+    instanceIO << instanceProcess;
     std::cout << instanceIO;                        instanceIO.outputFile << instanceIO;
-    
-    // instanceIO >> instanceProcess;
-    // instanceProcess.findMax();
-    // instanceIO << instanceProcess;
-    // cout << instanceIO; ???
     
   }
 
